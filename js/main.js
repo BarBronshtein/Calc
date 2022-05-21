@@ -38,14 +38,19 @@ function result() {
   // TODO: Change base value with only one click // Completed
   // TODO: Show also letters with hex base // Completed
 
+  // Checks if there are 2 numbers if the second one isn't gNum2 must be gMemoRes
   if (gNum1 && gOp && display.textContent && !gNum2) {
     gResult = +eval(gNum1 + gOp + gMemoRes);
   }
+
   if (gNum1 && gNum2) {
     gResult = +eval(gNum1 + gOp + gNum2);
   }
+
   if (gRoot) {
+    // Checks the result of the first number he entered.
     if (gNum2 === null) gResult = gNum1 ** 0.5;
+    // If the user wants to make an equastion inside the root
     else gResult = eval(gNum1 + gOp + gNum2) ** 0.5;
     gRoot = false;
   }
@@ -54,8 +59,8 @@ function result() {
   gOp = null;
   gResult = gResult ? gResult : +gNum1;
   gNum1 = gResult;
-  if (gMode === 16) display.textContent = decimalToHex(gResult);
-  else display.textContent = gResult.toString(gMode);
+  // if (gMode === 16) display.textContent = decimalToHex(gResult);
+  display.textContent = gResult.toString(gMode);
 }
 
 function addDot() {
@@ -65,21 +70,23 @@ function addDot() {
 }
 
 function resetC() {
+  // Resetting everything
   gRoot = false;
   gOp = null;
   init();
 }
 
-function decimalToHex(val) {
-  var hex = Number(val).toString(16);
-  hex = '000000'.substr(0, 6 - hex.length) + hex;
-  while (hex.charAt(0) === '0') {
-    hex = hex.slice(1);
-  }
-  return hex;
-}
+// function decimalToHex(val) {
+//   var hex = Number(val).toString(16);
+//   hex = '000000'.substr(0, 6 - hex.length) + hex;
+//   while (hex.charAt(0) === '0') {
+//     hex = hex.slice(1);
+//   }
+//   return hex;
+// }
 
 function fractionOfNum() {
+  // Gets 1/x of number
   if (gResult) {
     gResult = 1 / gResult;
     display.textContent = gResult;
@@ -104,6 +111,9 @@ function negativePositive() {
 
 function resetCE() {
   // TODO: Repair functionallity // Completed
+
+  // Resets the last number entered
+
   console.log(gNum1, gNum2, gResult);
   if (gNum2 === null) {
     gNum1 = null;
@@ -142,6 +152,7 @@ function root() {
 }
 
 function openModal() {
+  // Opens base mode options
   modal.classList.remove('hidden');
 }
 
