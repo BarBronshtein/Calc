@@ -57,7 +57,7 @@ function result() {
   console.log(gNum1, gNum2, gResult);
   gNum2 = null;
   gOp = null;
-  gResult = gResult ? gResult : +gNum1;
+  if (gNum1 && !gResult) gResult = +gNum1;
   gNum1 = gResult;
   // if (gMode === 16) display.textContent = decimalToHex(gResult);
   display.textContent = gResult.toString(gMode);
