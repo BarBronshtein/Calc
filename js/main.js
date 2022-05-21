@@ -35,16 +35,19 @@ function setOp(op) {
 }
 
 function result() {
+  let isResultChanged = false;
   // TODO: Change base value with only one click // Completed
   // TODO: Show also letters with hex base // Completed
 
   // Checks if there are 2 numbers if the second one isn't gNum2 must be gMemoRes
   if (gNum1 && gOp && display.textContent && !gNum2) {
     gResult = +eval(gNum1 + gOp + gMemoRes);
+    isResultChanged = true;
   }
 
   if (gNum1 && gNum2) {
     gResult = +eval(gNum1 + gOp + gNum2);
+    isResultChanged = true;
   }
 
   if (gRoot) {
@@ -53,11 +56,12 @@ function result() {
     // If the user wants to make an equastion inside the root
     else gResult = eval(gNum1 + gOp + gNum2) ** 0.5;
     gRoot = false;
+    isResultChanged = true;
   }
   console.log(gNum1, gNum2, gResult);
   gNum2 = null;
   gOp = null;
-  if (gNum1 && !gResult) gResult = +gNum1;
+  if (!isResultChanged) gResult = +gNum1;
   gNum1 = gResult;
   // if (gMode === 16) display.textContent = decimalToHex(gResult);
   display.textContent = gResult.toString(gMode);
