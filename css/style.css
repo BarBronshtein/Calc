@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.calc {
+  background-color: rgb(217, 240, 241);
+  width: 500px;
+  height: 300px;
+}
+
+label {
+  display: block;
+}
+
+.modal {
+  background-color: rgb(217, 240, 241);
+  max-width: 10rem;
+  padding: 0.5rem;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.display {
+  font-size: 2.2rem;
+  bottom: 0;
+  text-align: right;
+  height: 100px;
+  border: 1.2rem solid rgb(217, 240, 241);
+  background-color: rgb(240, 246, 248);
+}
+
+td {
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  border: 0.3rem solid rgb(217, 240, 241);
+  background-color: rgb(240, 246, 248);
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+table {
+  table-layout: fixed;
+}

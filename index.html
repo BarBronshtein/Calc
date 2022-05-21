@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="calc">
+      <div class="display"></div>
+      <table class="calc">
+        <tr class="dk-blue">
+          <td onclick="memoReset()">MC</td>
+          <td onclick="memoRecall()">MR</td>
+          <td onclick="memoStore()">MS</td>
+          <td onclick="memoAdd()">M+</td>
+          <td onclick="memoSubtract()">M-</td>
+        </tr>
+        <tr class="dl-blue">
+          <td onclick="openModal()">&#8592;</td>
+          <td onclick="resetCE()">CE</td>
+          <td onclick="resetC()">C</td>
+          <td onclick="negativePositive()">&#177;</td>
+          <td onclick="root()">&#8730;</td>
+        </tr>
+        <tr class="dl-blue">
+          <td onclick="addDigit(this)">7</td>
+          <td onclick="addDigit(this)">8</td>
+          <td onclick="addDigit(this)">9</td>
+          <td onclick="setOp(this)">/</td>
+          <td onclick="setOp(this)">%</td>
+        </tr>
+        <tr class="dl-blue">
+          <td onclick="addDigit(this)">4</td>
+          <td onclick="addDigit(this)">5</td>
+          <td onclick="addDigit(this)">6</td>
+          <td onclick="setOp(this)">*</td>
+          <td onclick="fractionOfNum()">1/&#120;</td>
+        </tr>
+        <tr class="dl-blue">
+          <td onclick="addDigit(this)">1</td>
+          <td onclick="addDigit(this)">2</td>
+          <td onclick="addDigit(this)">3</td>
+          <td onclick="setOp(this)">-</td>
+          <td rowspan="2" onclick="result()">=</td>
+        </tr>
+        <tr class="dl-blue">
+          <td colspan="2" onclick="addDigit(this)">0</td>
+          <td onclick="addDot()">.</td>
+          <td onclick="setOp(this)">+</td>
+        </tr>
+      </table>
+      <div class="modal hidden">
+        <h3>Enter desired mode</h3>
+        <label for="">
+          <input
+            onclick="setMode(this)"
+            type="radio"
+            name="mode"
+            value="hex"
+          />Hex</label
+        >
+        <label
+          ><input
+            onclick="setMode(this)"
+            type="radio"
+            name="mode"
+            value="bin"
+          />Bin
+        </label>
+        <label>
+          <input
+            onclick="setMode(this)"
+            type="radio"
+            name="mode"
+            value="dec"
+            checked
+          />Dec
+        </label>
+        <label for="">
+          <input
+            onclick="setMode(this)"
+            type="radio"
+            name="mode"
+            value="oct"
+          />Oct
+        </label>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/utility.js"></script>
+  </body>
+</html>
