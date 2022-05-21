@@ -151,7 +151,7 @@ function memoStore() {
 }
 
 function root() {
-  display.textContent = '';
+  init();
   gRoot = true;
 }
 
