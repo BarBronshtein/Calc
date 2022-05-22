@@ -62,9 +62,13 @@ function result() {
 }
 
 function addDot() {
-  if (gNum2 === null) gNum1 += '.';
-  else gNum2 += '.';
-  if (display.textContent) display.textContent = gNum1;
+  if (gNum2 === null) {
+    gNum1 += '.';
+    display.textContent = gNum1;
+  } else {
+    gNum2 += '.';
+    display.textContent = gNum2;
+  }
 }
 
 function resetC() {
