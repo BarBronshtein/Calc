@@ -18,6 +18,7 @@ var modes = {
 
 function addDigit(digit) {
   display.textContent += digit.textContent;
+  // Checks if we hit result otherwise we input the first number gNum1
   if (gNum2 === null && !gOp) gNum1 = display.textContent;
   else gNum2 = display.textContent;
 }
@@ -40,10 +41,6 @@ function result() {
   // TODO: Show also letters with hex base // Completed
 
   // Checks if there are 2 numbers if the second one isn't gNum2 must be gMemoRes
-  if (gNum1 && gOp && display.textContent && !gNum2) {
-    gResult = +eval(gNum1 + gOp + gMemoRes);
-    isResultChanged = true;
-  }
 
   if (gNum1 && gNum2) {
     gResult = +eval(gNum1 + gOp + gNum2);
@@ -58,7 +55,6 @@ function result() {
     gRoot = false;
     isResultChanged = true;
   }
-  console.log(gNum1, gNum2, gResult);
   gNum2 = null;
   gOp = null;
   if (!isResultChanged) gResult = +gNum1;
@@ -91,10 +87,8 @@ function resetC() {
 
 function fractionOfNum() {
   // Gets 1/x of number
-  if (gResult) {
-    gResult = 1 / gResult;
-    display.textContent = gResult;
-  } else if (gNum2 === null) {
+
+  if (gNum2 === null) {
     gNum1 = 1 / gNum1;
     display.textContent = gNum1;
   } else {
@@ -118,7 +112,6 @@ function resetCE() {
 
   // Resets the last number entered
 
-  console.log(gNum1, gNum2, gResult);
   if (gNum2 === null) {
     gNum1 = null;
     gResult = 0;
@@ -141,7 +134,12 @@ function memoSubtract() {
 }
 
 function memoRecall() {
-  if (gNum1 && gNum2) gNum1 = eval(gNum1 + gOp + gNum2);
+  if (gNum1 && gNum2) {
+    gNum1 = +eval(gNum1 + gOp + gNum2);
+    gNum2 = gMemoRes;
+  } else if (gNum2 === null && gNum1 === null) gNum1 = gMemoRes;
+  else gNum1 = +eval(gNum1 + gOp + gMemoRes);
+
   display.textContent = gMemoRes.toString(gMode);
 }
 
