@@ -40,8 +40,6 @@ function result() {
   // TODO: Change base value with only one click // Completed
   // TODO: Show also letters with hex base // Completed
 
-  // Checks if there are 2 numbers if the second one isn't gNum2 must be gMemoRes
-
   if (gNum1 && gNum2) {
     gResult = +eval(gNum1 + gOp + gNum2);
     isResultChanged = true;
